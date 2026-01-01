@@ -1,0 +1,122 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.editor-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  height: 88px;
+  padding: 0 16px;
+
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .editor-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+  }
+}
+
+.editor-tab-container {
+  display: flex;
+  gap: 1rem;
+  font-weight: 500;
+}
+
+.editor-tab {
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  font-size: small;
+  font-weight: 500;
+  transition: color 0.2s;
+  color: #4b5563;
+
+  &:hover {
+    color: #1f2937;
+  }
+}
+
+.editor-tab--active {
+  color: #111827;
+  border-bottom: 2px solid #111827;
+}
+
+.editor-textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 16px;
+  border: none;
+  resize: none;
+  outline: none;
+}
+
+.md-example-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 72px;
+  color: #4b5563;
+  font-size: 10px;
+  font-weight: 500;
+  border-top: 1px solid #e5e7eb;
+  border-radius: 0 0 8px 8px;
+  background-color: #f9fafb;
+  gap: 8px;
+  padding: 0 16px;
+
+  @media (min-width: 640px) {
+    .md-example-container {
+      height: 48px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md-example-container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      height: 32px;
+    }
+  }
+}
+
+.md-example-text {
+  font-weight: 400;
+}
+
+.md-examples {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  gap: 2px;
+
+  @media (min-width: 420px) {
+    .md-examples {
+      flex-direction: row;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md-examples {
+      gap: 8px;
+    }
+  }
+}
+
+.md-example-row {
+  display: flex;
+  gap: 8px;
+}

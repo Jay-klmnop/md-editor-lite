@@ -1,0 +1,9 @@
+.preview {
+  color: #111827;
+  width: 100%;
+  min-height: 200px;
+  padding: 16px;
+  outline: none;
+  box-sizing: border-box;
+  list-style: decimal inside;
+}

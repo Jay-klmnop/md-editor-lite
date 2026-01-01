@@ -1,6 +1,6 @@
 import React from "react";
 import { cx } from "../utils/cx";
-import { dropdownItemClass } from "../constants/dropdownItemClass";
+import "../css/dropdown.css";
 
 export type DropdownOption = {
   value: string;
@@ -9,19 +9,21 @@ export type DropdownOption = {
 };
 
 interface IconDropdownProps {
-  options: DropdownOption[];
-  onChange: (value: string) => void;
-  triggerIcon: React.ReactNode;
-  disabled?: boolean;
   className?: string;
+  disabled?: boolean;
+  options: DropdownOption[];
+  selected?: boolean;
+  triggerIcon: React.ReactNode;
+  onChange: (value: string) => void;
 }
 
 export function IconDropdown({
-  options,
-  onChange,
-  triggerIcon,
-  disabled,
   className,
+  disabled,
+  options,
+  selected,
+  triggerIcon,
+  onChange,
 }: IconDropdownProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const dropdownRef = React.useRef<HTMLDivElement>(null);
@@ -44,38 +46,41 @@ export function IconDropdown({
   }, []);
 
   return (
-    <div ref={dropdownRef} className={cx("relative inline-block", className)}>
+    <div ref={dropdownRef} className={cx("md-dropdown", className)}>
       <button
         type="button"
         onClick={toggle}
         disabled={disabled}
         className={cx(
-          "remove-focus-outline hover:bg-custom-gray-100 centralize text-custom-gray-600 h-7 w-7 cursor-pointer rounded transition",
-          disabled && "cursor-not-allowed opacity-50"
+          "md-dropdown__trigger",
+          disabled && "md-dropdown__trigger--disabled"
         )}
       >
         {triggerIcon}
       </button>
 
       {isOpen && (
-        <ul className="border-custom-gray-200 absolute left-0 z-50 mt-1 max-h-60 min-w-10 overflow-auto rounded-md border bg-white py-1 shadow-lg">
+        <ul className="md-dropdown__menu">
           {options.map((option) => (
             <li
               key={option.value}
-              className={dropdownItemClass({
-                selected: false,
-              })}
+              className={cx(
+                "md-dropdown__item",
+                selected && "md-dropdown__item--selected"
+              )}
               onClick={() => {
                 onChange(option.value);
                 setIsOpen(false);
               }}
             >
               {option.Icon && (
-                <span className="text-custom-gray-400">
+                <span className="md-dropdown__icon">
                   <option.Icon />
                 </span>
               )}
-              {option.label && <span>{option.label}</span>}
+              {option.label && (
+                <span className="md-dropdown__label">{option.label}</span>
+              )}
             </li>
           ))}
         </ul>

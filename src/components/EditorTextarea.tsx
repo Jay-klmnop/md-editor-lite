@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import "../css/editor.css";
 
 interface EditorTextareaProps {
   value: string;
@@ -32,9 +33,7 @@ export const EditorTextarea = forwardRef<
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
       placeholder={placeholder}
-      className="remove-focus-outline min-h-[200px] w-full resize-none border-0 p-4"
+      className="editor-textarea"
     ></textarea>
   );
 });
-
-EditorTextarea.displayName = "EditorTextarea";

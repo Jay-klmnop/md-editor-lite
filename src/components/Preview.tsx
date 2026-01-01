@@ -1,4 +1,5 @@
 import { markdownToHtml } from "../utils/markdown";
+import "../css/preview.css";
 
 interface PreviewProps {
   value: string;
@@ -7,7 +8,7 @@ interface PreviewProps {
 export function Preview({ value }: PreviewProps) {
   return (
     <div
-      className="text-custom-gray-900 remove-focus-outline markdown-content min-h-[200px] w-full list-inside border-0 p-4"
+      className="preview"
       dangerouslySetInnerHTML={{ __html: markdownToHtml(value) }}
       style={{ listStyle: "decimal" }}
     />

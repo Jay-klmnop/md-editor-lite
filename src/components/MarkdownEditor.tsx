@@ -6,6 +6,7 @@ import {
   Preview,
 } from "../components";
 import { useMarkdownEditor } from "../hooks/useMarkdownEditor";
+import "../css/editor.css";
 
 interface MarkdownEditorProps {
   value: string;
@@ -25,7 +26,7 @@ export function MarkdownEditor({
   const [mode, setMode] = useState<"write" | "preview">("write");
 
   return (
-    <div className="border-custom-gray-200 rounded-lg border">
+    <div className="editor">
       <EditorHeader
         mode={mode}
         setMode={setMode}

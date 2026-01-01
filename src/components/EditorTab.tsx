@@ -1,4 +1,4 @@
-import { editorTabClass } from "../constants/editorTabClass";
+import "../css/editor.css";
 
 interface EditorTabProps {
   mode: string;
@@ -7,15 +7,17 @@ interface EditorTabProps {
 
 export function EditorTab({ mode, setMode }: EditorTabProps) {
   return (
-    <div className="flex gap-4 font-medium">
+    <div className="editor-tab-container">
       <div
-        className={editorTabClass({ active: mode === "write" })}
+        className={`editor-tab ${mode === "write" ? "editor-tab--active" : ""}`}
         onClick={() => setMode("write")}
       >
         작성
       </div>
       <div
-        className={editorTabClass({ active: mode === "preview" })}
+        className={`editor-tab ${
+          mode === "preview" ? "editor-tab--active" : ""
+        }`}
         onClick={() => setMode("preview")}
       >
         미리보기

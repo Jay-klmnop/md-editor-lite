@@ -1,5 +1,6 @@
 import { TOOLBAR_BUTTONS } from "../constants/toolbar";
 import { ToolbarDropdownHeading, ToolbarDropdownList } from "../components";
+import "../css/toolbar.css";
 
 interface ToolbarProps {
   insertMarkdown: (before: string, after?: string) => void;
@@ -7,11 +8,11 @@ interface ToolbarProps {
 
 export function Toolbar({ insertMarkdown }: ToolbarProps) {
   return (
-    <menu className="flex items-center gap-4">
+    <menu className="toolbar-menu">
       {TOOLBAR_BUTTONS.map(({ key, before, after, Icon }) => (
         <button
           key={key}
-          className="bg-transparent text-custom-gray-700 hover:bg-custom-gray-100 active:bg-custom-gray-200 h-5 w-5"
+          className="toolbar-button"
           onClick={() => insertMarkdown(before, after)}
         >
           <Icon size={18} />

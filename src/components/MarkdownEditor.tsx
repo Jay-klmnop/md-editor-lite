@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  EditorHeader,
-  EditorTextarea,
-  MarkdownExample,
-  Preview,
-} from "../components";
+import { EditorHeader, EditorTextarea, Preview } from "../components";
 import { useMarkdownEditor } from "../hooks/useMarkdownEditor";
 import "../css/editor.css";
 
@@ -42,7 +37,6 @@ export function MarkdownEditor({
       ) : (
         <Preview value={value} />
       )}
-      <MarkdownExample />
     </div>
   );
 }

@@ -5,6 +5,7 @@
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .editor-header {
@@ -57,66 +58,10 @@
 .editor-textarea {
   width: 100%;
   min-height: 200px;
+  margin: 0;
   padding: 16px;
   border: none;
   resize: none;
   outline: none;
-}
-
-.md-example-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 72px;
-  color: #4b5563;
-  font-size: 10px;
-  font-weight: 500;
-  border-top: 1px solid #e5e7eb;
-  border-radius: 0 0 8px 8px;
-  background-color: #f9fafb;
-  gap: 8px;
-  padding: 0 16px;
-
-  @media (min-width: 640px) {
-    .md-example-container {
-      height: 48px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .md-example-container {
-      flex-direction: row;
-      align-items: center;
-      justify-content: start;
-      height: 32px;
-    }
-  }
-}
-
-.md-example-text {
-  font-weight: 400;
-}
-
-.md-examples {
-  display: flex;
-  flex-direction: column;
-  font-size: 10px;
-  gap: 2px;
-
-  @media (min-width: 420px) {
-    .md-examples {
-      flex-direction: row;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .md-examples {
-      gap: 8px;
-    }
-  }
-}
-
-.md-example-row {
-  display: flex;
-  gap: 8px;
+  box-sizing: border-box;
 }

@@ -1,31 +1,35 @@
 function parseBold(text: string): string {
-  return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+  return text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 }
 
 function parseItalic(text: string): string {
-  return text.replace(/\*(.+?)\*/g, '<em>$1</em>')
+  return text.replace(/\*(.+?)\*/g, "<em>$1</em>");
 }
 
 function parseInlineCode(text: string): string {
-  return text.replace(/`(.+?)`/g, '<code>$1</code>')
+  return text.replace(/`(.+?)`/g, "<code>$1</code>");
+}
+
+function parseBlockquote(text: string): string {
+  return text.replace(/^> (.+)$/gm, "<blockquote>$1</blockquote>");
 }
 
 function parseImages(text: string): string {
   return text.replace(
     /!\[(.*?)\]\(([^)]*?)\)/g,
-    (_, alt: string, url: string) => `<img src="${url}" alt="${alt || ''}" />`
-  )
+    (_, alt: string, url: string) => `<img src="${url}" alt="${alt || ""}" />`
+  );
 }
 
 function parseLinks(text: string): string {
-  return text.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
+  return text.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
 }
 
 function parseHeadings(text: string): string {
   return text
-    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^# (.+)$/gm, "<h1>$1</h1>")
+    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
+    .replace(/^### (.+)$/gm, "<h3>$1</h3>");
 }
 
 function parseUnorderedList(text: string): string {
@@ -35,13 +39,13 @@ function parseUnorderedList(text: string): string {
       const items = block
         .trim()
         .split(/\r?\n/)
-        .map((line: string) => line.replace(/^\s*- /, '').trim())
+        .map((line: string) => line.replace(/^\s*- /, "").trim())
         .filter(Boolean)
         .map((item: string) => `<li>${item}</li>`)
-        .join('')
-      return `${prefix}<ul>${items}</ul>`
+        .join("");
+      return `${prefix}<ul>${items}</ul>`;
     }
-  )
+  );
 }
 
 function parseOrderedList(text: string): string {
@@ -51,34 +55,35 @@ function parseOrderedList(text: string): string {
       const items = block
         .trim()
         .split(/\r?\n/)
-        .map((line: string) => line.replace(/^\d+\. /, '').trim())
+        .map((line: string) => line.replace(/^\d+\. /, "").trim())
         .filter(Boolean)
         .map((item: string) => `<li>${item}</li>`)
-        .join('')
-      return `${prefix}<ol>${items}</ol>`
+        .join("");
+      return `${prefix}<ol>${items}</ol>`;
     }
-  )
+  );
 }
 
 function parseLineBreaks(text: string): string {
   return text.replace(
     /(?<!<\/ul>|<\/ol>|<\/li>|<\/h1>|<\/h2>|<\/h3>)\n/g,
-    '<br/>'
-  )
+    "<br/>"
+  );
 }
 
 export function markdownToHtml(markdown: string): string {
-  let html = markdown
+  let html = markdown;
 
-  html = parseBold(html)
-  html = parseItalic(html)
-  html = parseInlineCode(html)
-  html = parseImages(html)
-  html = parseLinks(html)
-  html = parseHeadings(html)
-  html = parseUnorderedList(html)
-  html = parseOrderedList(html)
-  html = parseLineBreaks(html)
+  html = parseBold(html);
+  html = parseItalic(html);
+  html = parseInlineCode(html);
+  html = parseBlockquote(html);
+  html = parseImages(html);
+  html = parseLinks(html);
+  html = parseHeadings(html);
+  html = parseUnorderedList(html);
+  html = parseOrderedList(html);
+  html = parseLineBreaks(html);
 
-  return html
+  return html;
 }

@@ -12,7 +12,7 @@ export function EditorTab({ mode, setMode }: EditorTabProps) {
         className={`editor-tab ${mode === "write" ? "editor-tab--active" : ""}`}
         onClick={() => setMode("write")}
       >
-        작성
+        Write
       </div>
       <div
         className={`editor-tab ${
@@ -20,7 +20,7 @@ export function EditorTab({ mode, setMode }: EditorTabProps) {
         }`}
         onClick={() => setMode("preview")}
       >
-        미리보기
+        Preview
       </div>
     </div>
   );

@@ -1,11 +1,22 @@
 {
-  "name": "simple-markdown-editor",
+  "name": "md-editor-lite",
+  "description": "A lightweight, dependency-minimal React markdown editor",
+  "keywords": [
+    "markdown",
+    "editor",
+    "react",
+    "lightweight",
+    "textarea"
+  ],
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts"
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean"
+  },
+  "peerDependencies": {
+    "react": ">=18"
   },
   "devDependencies": {
     "@types/react": "^19.2.7",

@@ -11,6 +11,7 @@ Built with **TypeScript**, designed for **library-friendly usage**, and has **no
 
 - ⚡ **Minimal dependencies**
   → No heavy editor engines, no unnecessary packages
+  → Regex-based parsing for predictable behavior
 
 - 🔁 **Controlled & Uncontrolled modes**
   → Works well with forms and external state management
@@ -26,14 +27,21 @@ Built with **TypeScript**, designed for **library-friendly usage**, and has **no
 
 ## 🧠 Supported Markdown Syntax
 
-- **Bold**
-- _Italic_
-- `Inline code`
-- > Blockquote
-- Headings (`#`, `##`, `###`)
-- Ordered / Unordered lists
+- Bold: **bold**
+- Italic: _italic_
+- <u>Underline</u>: **underline**
+- Strikethrough: ~~strike~~
+- Inline code: `code`
+- Blockquote: > quote
+- Headings:`#`, `##`, `###`
+- Ordered / Unordered lists:
+  - `- item`
+  - `1. item`
 - Images: `![alt](url)`
 - Links: `[text](url)`
+
+> ⚠️ This editor intentionally does not support fenced code blocks
+> (code) to keep parsing logic lightweight and predictable.
 
 ---
 
@@ -117,6 +125,19 @@ Make sure the following meta tag exists in your HTML document:
 
 ---
 
+## 🚫 Non-goals
+
+md-editor-lite intentionally does NOT aim to be:
+
+- A full CommonMark implementation
+- A WYSIWYG editor
+- A syntax-highlighting code editor
+
+This library focuses on **simple text input with markdown preview**,
+not complex document authoring.
+
+---
+
 <details>
 <summary>🇰🇷 한국어 설명</summary>
 
@@ -171,5 +192,10 @@ Make sure the following meta tag exists in your HTML document:
 - “에디터 하나 때문에 라이브러리가 무거워지는 게 싫을 때”
 - 관리자 페이지에 **심플한 마크다운 입력 UI**가 필요할 때
 - 디자인 시스템 안에 자연스럽게 녹아드는 에디터가 필요할 때
+
+---
+
+> md-editor-lite는 CommonMark 전체를 구현하는 것을 목표로 하지 않습니다.  
+> 문법 충돌과 예외 처리가 많은 기능(code block, table 등)은 의도적으로 제외했습니다.
 
 </details>

@@ -2,9 +2,11 @@
   "name": "md-editor-lite",
   "description": "A lightweight, dependency-minimal React markdown editor",
   "keywords": [
+    "react",
     "markdown",
     "editor",
-    "react",
+    "markdown-editor",
+    "react-editor",
     "lightweight",
     "textarea"
   ],

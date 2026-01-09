@@ -3,7 +3,7 @@ function parseBold(text: string): string {
 }
 
 function parseItalic(text: string): string {
-  return text.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  return text.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, "<em>$1</em>");
 }
 
 function parseInlineCode(text: string): string {
@@ -12,6 +12,18 @@ function parseInlineCode(text: string): string {
 
 function parseBlockquote(text: string): string {
   return text.replace(/^> (.+)$/gm, "<blockquote>$1</blockquote>");
+}
+
+function parseStrikethrough(text: string): string {
+  return text.replace(/~~(.+?)~~/g, "<del>$1</del>");
+}
+
+function parseUnderline(text: string): string {
+  return text.replace(/__(.+?)__/g, "<u>$1</u>");
+}
+
+function parseHr(text: string): string {
+  return text.replace(/^---$/gm, "<hr />");
 }
 
 function parseImages(text: string): string {
@@ -74,15 +86,20 @@ function parseLineBreaks(text: string): string {
 export function markdownToHtml(markdown: string): string {
   let html = markdown;
 
-  html = parseBold(html);
-  html = parseItalic(html);
-  html = parseInlineCode(html);
-  html = parseBlockquote(html);
-  html = parseImages(html);
-  html = parseLinks(html);
+  html = parseHr(html);
   html = parseHeadings(html);
+  html = parseBlockquote(html);
   html = parseUnorderedList(html);
   html = parseOrderedList(html);
+
+  html = parseBold(html);
+  html = parseUnderline(html);
+  html = parseStrikethrough(html);
+  html = parseItalic(html);
+  html = parseInlineCode(html);
+
+  html = parseImages(html);
+  html = parseLinks(html);
   html = parseLineBreaks(html);
 
   return html;

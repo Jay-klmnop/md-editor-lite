@@ -10,6 +10,9 @@ import {
   ListOrderedIcon,
   ListIcon,
   QuoteIcon,
+  StrikethroughIcon,
+  UnderlineIcon,
+  ListEndIcon,
 } from "lucide-react";
 
 type ToolbarDropdownOption = DropdownOption & {
@@ -21,6 +24,9 @@ export const TOOLBAR_BUTTONS = [
   { key: "italic", before: "*", after: "*", Icon: ItalicIcon },
   { key: "code", before: "`", after: "`", Icon: CodeIcon },
   { key: "blockquote", before: "> ", after: "", Icon: QuoteIcon },
+  { key: "strikethrough", before: "~~", after: "~~", Icon: StrikethroughIcon },
+  { key: "underline", before: "__", after: "__", Icon: UnderlineIcon },
+  { key: "horizontal rule", before: "\n---\n", after: "", Icon: ListEndIcon },
   { key: "link", before: "[", after: "]()", Icon: LinkIcon },
 ];
 

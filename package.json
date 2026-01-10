@@ -32,5 +32,8 @@
   "files": [
     "dist",
     "README.md"
+  ],
+  "sideEffects": [
+    "*.css"
   ]
 }

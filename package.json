@@ -10,7 +10,7 @@
     "lightweight",
     "textarea"
   ],
-  "version": "0.1.6",
+  "version": "0.1.7",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

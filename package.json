@@ -40,5 +40,6 @@
   ],
   "sideEffects": [
     "*.css"
-  ]
+  ],
+  "style": "dist/style.css"
 }

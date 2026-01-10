@@ -2,11 +2,12 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: ["src/index.ts", "src/style.css"],
-  format: ["esm", "cjs"],
+  format: ["esm"],
   clean: true,
   loader: {
     ".css": "copy",
   },
-  jsxFactory: "React.createElement",
-  jsxFragment: "React.Fragment",
+  esbuildOptions(options) {
+    options.jsx = "automatic";
+  },
 });

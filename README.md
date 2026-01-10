@@ -53,6 +53,16 @@ npm install md-editor-lite
 
 ---
 
+### Styles
+
+This library does not inject styles automatically.
+
+```ts
+import "md-editor-lite/style.css";
+```
+
+---
+
 ## 🚀 Basic Usage (Uncontrolled)
 
 ```tsx

@@ -7,4 +7,6 @@ export default defineConfig({
   loader: {
     ".css": "copy",
   },
+  jsxFactory: "React.createElement",
+  jsxFragment: "React.Fragment",
 });

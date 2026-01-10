@@ -13,14 +13,14 @@
   "version": "0.1.5",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./style.css": "./dist/style.css"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean --tsconfig tsconfig.build.json"
+    "build": "tsup && tsc -p tsconfig.build.json"
   },
   "peerDependencies": {
     "react": ">=18"

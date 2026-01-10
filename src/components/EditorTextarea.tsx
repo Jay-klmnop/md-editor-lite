@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import "../css/editor.css";
+import "../style.css";
 
 interface EditorTextareaProps {
   value: string;

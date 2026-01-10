@@ -1,5 +1,5 @@
 import { EditorTab, Toolbar } from "../components";
-import "../css/editor.css";
+import "../style.css";
 
 interface EditorHeaderProps {
   mode: "write" | "preview";

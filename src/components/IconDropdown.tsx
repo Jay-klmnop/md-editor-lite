@@ -1,6 +1,6 @@
 import React from "react";
 import { cx } from "../utils/cx";
-import "../css/dropdown.css";
+import "../style.css";
 
 export type DropdownOption = {
   value: string;

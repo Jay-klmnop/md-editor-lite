@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { EditorHeader, EditorTextarea, Preview } from "../components";
 import { useMarkdownEditor } from "../hooks/useMarkdownEditor";
-import "../css/editor.css";
+import "../style.css";
 
 interface MarkdownEditorProps {
   value: string;

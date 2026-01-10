@@ -1,5 +1,5 @@
 import { markdownToHtml } from "../utils/markdown";
-import "../css/preview.css";
+import "../style.css";
 
 interface PreviewProps {
   value: string;

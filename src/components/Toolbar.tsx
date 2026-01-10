@@ -1,6 +1,6 @@
 import { TOOLBAR_BUTTONS } from "../constants/toolbar";
 import { ToolbarDropdownHeading, ToolbarDropdownList } from "../components";
-import "../css/toolbar.css";
+import "../style.css";
 
 interface ToolbarProps {
   insertMarkdown: (before: string, after?: string) => void;

@@ -1,4 +1,4 @@
-import "../css/editor.css";
+import "../style.css";
 
 interface EditorTabProps {
   mode: string;
